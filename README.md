@@ -105,7 +105,7 @@ MIDI 파일을 드래그 앤 드롭 또는 클릭하여 업로드합니다.
 ## 👉미디 사이트 추천
 | https://bitmidi.com | https://basicpitch.spotify.com | https://eldoraudio.com |
 | :--- | :---- | :--- |
-| $\color{#00a67d}{\text{회원가입X}}$ $\color{#bfff00}{\text{무료}}$ | $\color{#00a67d}{\text{회원가입X}}$ $\color{#bfff00}{\text{무료}}$ | $\color{#00a67d}{\text{회원가입X}}$ $\color{#bfff00}{\text{무료}}$ |
+| $\color{#00a67d}{\text{회원가입X}}$ $\color{#bfff00}{\text{무료}}$ | $\color{#00a67d}{\text{회원가입X}}$ $\color{#bfff00}{\text{무료}}$ | $\color{#00a67d}{\text{회원가입}}$ $\color{#bfff00}{\text{유료}}$ |
 | 많은 미디 파일이 저장되어있는 사이트입니다. | 오디오를 미디로 변환하는 사이트입니다. | 유튜브에서 피아노 커버 영상을 찾고, 그걸 이 사이트에 넣으면 깔끔한 미디를 만들어주는 사이트 입니다. |
 
 > [!TIP]
