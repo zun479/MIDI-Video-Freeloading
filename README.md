@@ -1,20 +1,14 @@
 <div align="center">
   <img src="./image/banner image.png" alt="banner image"/>
-<div align="center">
-<p><strong>이제 미디 파일과 비디오만 준비하세요!</strong></p>
-<p>기존 DAW 기반 작업보다 더 간단하게 MIDI와 영상을 활용할 수 있습니다.</p>
-https://midi-video-customize.vercel.app/
-</p>
-</p>
+  
+  <p><strong>이제 미디 파일과 비디오만 준비하세요!</strong></p>
+  <p>기존 DAW 기반 작업보다 더 간단하게 MIDI와 영상을 활용할 수 있습니다.</p>
+  <p><a href="https://midi-video-customize.vercel.app/">https://midi-video-customize.vercel.app/</a></p>
+  
   <p>
-     <img src="[https://img.shields.io/badge/license-MIT_License-blue.svg](https://img.shields.io/badge/license-MIT_License-blue.svg)" alt="License: MIT License">
-   </p>
+    <img src="https://img.shields.io/badge/license-MIT%20License-blue.svg" alt="License: MIT License">
+  </p>
 </div>
-</div>
-
-
-
-
 
 > [!IMPORTANT]
 > 이 사이트를 사용해 생성된 영상 및 결과물은 자유롭게 녹화, 편집, 업로드 및 공유할 수 있습니다.
