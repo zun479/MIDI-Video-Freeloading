@@ -137,6 +137,19 @@
     .status-dot.active { background: var(--green); box-shadow: 0 0 10px var(--green); }
     .status-dot.trigger { background: var(--accent2) !important; box-shadow: 0 0 15px var(--accent2) !important; }
 
+    .lang-select {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.75rem;
+      font-family: inherit;
+      padding: 0.4rem 0.6rem;
+      border-radius: 20px;
+      outline: none;
+      cursor: pointer;
+    }
+    .lang-select:hover { border-color: var(--accent); }
+
     main {
       flex: 1;
       display: grid;
@@ -253,18 +266,24 @@
       <h1 class="main-title">MIDI Video <span style="color: var(--accent);">Freeloading</span></h1>
       
       <div class="notice-section">
-        <span class="notice-text">출처 표기 불필요 · 원본 저작권 책임은 사용자에게 있음</span>
-        <button class="notice-btn" id="notice-btn">자세히 보기</button>
+        <span class="notice-text" data-i18n="notice">출처 표기 불필요 · 원본 저작권 책임은 사용자에게 있음</span>
+        <button class="notice-btn" id="notice-btn" data-i18n="noticeBtn">자세히 보기</button>
       </div>
     </div>
 
     <div class="header-controls">
+      <select id="lang-select" class="lang-select">
+        <option value="ko">한국어</option>
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+        <option value="zh">中文</option>
+      </select>
       <a href="https://github.com/jun479/MIDI-Video-Customize" target="_blank" class="github-link">
         <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg>
       </a>
       <div class="status-badge">
         <div id="status-dot" class="status-dot"></div>
-        <span id="status-text">Ready</span>
+        <span id="status-text" data-i18n="statusReady">Ready</span>
       </div>
     </div>
   </header>
@@ -278,45 +297,45 @@
 
     <div class="sidebar" id="sidebar">
       <div class="card">
-        <div class="card-title">File Upload</div>
-        <label for="midi-input" class="drop-zone" id="midi-zone"><p id="midi-label">MIDI 드롭/클릭</p></label>
+        <div class="card-title" data-i18n="fileUpload">File Upload</div>
+        <label for="midi-input" class="drop-zone" id="midi-zone"><p id="midi-label" data-i18n="midiDrop">MIDI 드롭/클릭</p></label>
         <input type="file" id="midi-input" accept=".mid,.midi">
-        <label for="media-input" class="drop-zone" id="media-zone"><p id="media-label">미디어 드롭/클릭</p></label>
+        <label for="media-input" class="drop-zone" id="media-zone"><p id="media-label" data-i18n="mediaDrop">미디어 드롭/클릭</p></label>
         <input type="file" id="media-input" accept="video/*,audio/*">
       </div>
 
       <div class="card">
-        <div class="card-title">Animation Controls</div>
+        <div class="card-title" data-i18n="animControls">Animation Controls</div>
         <div class="control-group">
-          <label class="control-label">인 애니메이션</label>
+          <label class="control-label" data-i18n="inAnim">인 애니메이션</label>
           <select id="in-anim-select">
-            <option value="none">없음</option>
-            <option value="pop">팝 (Pop)</option>
+            <option value="none" data-i18n="animNone">없음</option>
+            <option value="pop" data-i18n="animPop">팝 (Pop)</option>
           </select>
         </div>
         <div class="control-group">
-          <label class="control-label">아웃 애니메이션</label>
+          <label class="control-label" data-i18n="outAnim">아웃 애니메이션</label>
           <select id="out-anim-select">
-            <option value="none">없음</option>
-            <option value="fade">페이드 아웃(실험적)</option>
+            <option value="none" data-i18n="animNone">없음</option>
+            <option value="fade" data-i18n="animFade">페이드 아웃(실험적)</option>
           </select>
         </div>
         <div class="control-group">
-          <label class="control-label">배경 헥스 코드</label>
+          <label class="control-label" data-i18n="bgHex">배경 헥스 코드</label>
           <input type="text" id="hex-bg-input" placeholder="#000000" value="#000000">
         </div>
-        <button id="play-btn" class="btn btn-primary" disabled>재생</button>
+        <button id="play-btn" class="btn btn-primary" disabled data-i18n="play">재생</button>
         <div style="height: 0.5rem;"></div>
-        <button id="flip-h-btn" class="btn btn-secondary">좌우 반전</button>
+        <button id="flip-h-btn" class="btn btn-secondary" data-i18n="flipH">좌우 반전</button>
         <div style="height: 0.4rem;"></div>
-        <button id="flip-v-btn" class="btn btn-secondary">상하 반전(실험적)</button>
+        <button id="flip-v-btn" class="btn btn-secondary" data-i18n="flipV">상하 반전(실험적)</button>
       </div>
 
       <div class="card piano-roll-card">
-        <div class="card-title">MIDI Piano Roll</div>
+        <div class="card-title" data-i18n="pianoRoll">MIDI Piano Roll</div>
         <div class="canvas-wrapper"><canvas id="piano-roll"></canvas></div>
         <div class="progress-bg" id="progress-bg"><div id="export-progress"></div></div>
-        <button id="export-audio-btn" class="btn btn-export" disabled>WAV 추출</button>
+        <button id="export-audio-btn" class="btn btn-export" disabled data-i18n="exportWav">WAV 추출</button>
       </div>
     </div>
   </main>
@@ -327,21 +346,162 @@
   <script>
     const $ = id => document.getElementById(id);
     const APP = { midi: null, sampler: null, isPlaying: false, currentFlipX: 1, currentFlipY: 1, isFlipHMode: false, isFlipVMode: false, midiLoaded: false, mediaLoaded: false, activeNotes: new Set(), currentMediaUrl: null };
-    const EL = { video: $('main-video'), vidBg: $('vid-bg'), viewport: $('viewport'), canvas: $('piano-roll'), ctx: $('piano-roll').getContext('2d'), playBtn: $('play-btn'), flipHBtn: $('flip-h-btn'), flipVBtn: $('flip-v-btn'), midiZone: $('midi-zone'), mediaZone: $('media-zone'), midiInput: $('midi-input'), mediaInput: $('media-input'), statusText: $('status-text'), statusDot: $('status-dot'), inAnim: $('in-anim-select'), outAnim: $('out-anim-select'), hexBg: $('hex-bg-input'), exportBtn: $('export-audio-btn'), progressBg: $('progress-bg'), progressFill: $('export-progress'), noticeBtn: $('notice-btn') };
+    const EL = { video: $('main-video'), vidBg: $('vid-bg'), viewport: $('viewport'), canvas: $('piano-roll'), ctx: $('piano-roll').getContext('2d'), playBtn: $('play-btn'), flipHBtn: $('flip-h-btn'), flipVBtn: $('flip-v-btn'), midiZone: $('midi-zone'), mediaZone: $('media-zone'), midiInput: $('midi-input'), mediaInput: $('media-input'), statusText: $('status-text'), statusDot: $('status-dot'), inAnim: $('in-anim-select'), outAnim: $('out-anim-select'), hexBg: $('hex-bg-input'), exportBtn: $('export-audio-btn'), progressBg: $('progress-bg'), progressFill: $('export-progress'), noticeBtn: $('notice-btn'), langSelect: $('lang-select') };
+
+    // ---------- i18n ----------
+    const I18N = {
+      ko: {
+        notice: "출처 표기 불필요 · 원본 저작권 책임은 사용자에게 있음",
+        noticeBtn: "자세히 보기",
+        noticeAlert: "본 사이트를 통해 생성된 결과물은 자유롭게 사용 가능하며 출처 표기는 불필요합니다.\n\n단, 업로드한 파일의 저작권 및 사용 책임은 전적으로 사용자에게 있습니다.\n모든 처리는 브라우저에서 실시간으로 이루어지며, 파일은 서버로 전송되지 않습니다.",
+        statusReady: "Ready",
+        fileUpload: "File Upload",
+        midiDrop: "MIDI 드롭/클릭",
+        mediaDrop: "미디어 드롭/클릭",
+        midiLoadedPrefix: "✓ MIDI: ",
+        mediaLoaded: "✓ 미디어 로드됨",
+        animControls: "Animation Controls",
+        inAnim: "인 애니메이션",
+        outAnim: "아웃 애니메이션",
+        animNone: "없음",
+        animPop: "팝 (Pop)",
+        animFade: "페이드 아웃(실험적)",
+        bgHex: "배경 헥스 코드",
+        play: "재생",
+        stop: "정지",
+        flipH: "좌우 반전",
+        flipV: "상하 반전(실험적)",
+        pianoRoll: "MIDI Piano Roll",
+        exportWav: "WAV 추출"
+      },
+      en: {
+        notice: "No attribution required · Original copyright responsibility lies with the user",
+        noticeBtn: "Learn more",
+        noticeAlert: "Content created through this site may be used freely, and attribution is not required.\n\nHowever, the copyright and usage responsibility for uploaded files rests entirely with the user.\nAll processing happens in real time in your browser; files are never sent to a server.",
+        statusReady: "Ready",
+        fileUpload: "File Upload",
+        midiDrop: "Drop/Click MIDI",
+        mediaDrop: "Drop/Click Media",
+        midiLoadedPrefix: "✓ MIDI: ",
+        mediaLoaded: "✓ Media loaded",
+        animControls: "Animation Controls",
+        inAnim: "In Animation",
+        outAnim: "Out Animation",
+        animNone: "None",
+        animPop: "Pop",
+        animFade: "Fade Out (Experimental)",
+        bgHex: "Background Hex Code",
+        play: "Play",
+        stop: "Stop",
+        flipH: "Flip Horizontal",
+        flipV: "Flip Vertical (Experimental)",
+        pianoRoll: "MIDI Piano Roll",
+        exportWav: "Export WAV"
+      },
+      ja: {
+        notice: "出典表記不要 · 元の著作権責任はユーザーにあります",
+        noticeBtn: "詳しく見る",
+        noticeAlert: "本サイトを通じて生成された結果物は自由に使用でき、出典表記は不要です。\n\nただし、アップロードしたファイルの著作権および使用に関する責任はすべてユーザーにあります。\nすべての処理はブラウザ上でリアルタイムに行われ、ファイルがサーバーに送信されることはありません。",
+        statusReady: "Ready",
+        fileUpload: "File Upload",
+        midiDrop: "MIDIをドロップ/クリック",
+        mediaDrop: "メディアをドロップ/クリック",
+        midiLoadedPrefix: "✓ MIDI: ",
+        mediaLoaded: "✓ メディア読み込み完了",
+        animControls: "Animation Controls",
+        inAnim: "インアニメーション",
+        outAnim: "アウトアニメーション",
+        animNone: "なし",
+        animPop: "ポップ (Pop)",
+        animFade: "フェードアウト（実験的）",
+        bgHex: "背景カラーコード",
+        play: "再生",
+        stop: "停止",
+        flipH: "左右反転",
+        flipV: "上下反転（実験的）",
+        pianoRoll: "MIDI Piano Roll",
+        exportWav: "WAV 書き出し"
+      },
+      zh: {
+        notice: "无需标注来源 · 原始版权责任由用户承担",
+        noticeBtn: "查看详情",
+        noticeAlert: "通过本网站生成的成果可自由使用，无需标注来源。\n\n但是，上传文件的版权及使用责任完全由用户承担。\n所有处理均在浏览器中实时完成，文件不会上传至服务器。",
+        statusReady: "Ready",
+        fileUpload: "File Upload",
+        midiDrop: "拖放/点击上传 MIDI",
+        mediaDrop: "拖放/点击上传媒体",
+        midiLoadedPrefix: "✓ MIDI: ",
+        mediaLoaded: "✓ 媒体已加载",
+        animControls: "Animation Controls",
+        inAnim: "入场动画",
+        outAnim: "出场动画",
+        animNone: "无",
+        animPop: "弹出 (Pop)",
+        animFade: "淡出（实验性）",
+        bgHex: "背景色代码",
+        play: "播放",
+        stop: "停止",
+        flipH: "左右翻转",
+        flipV: "上下翻转（实验性）",
+        pianoRoll: "MIDI Piano Roll",
+        exportWav: "导出 WAV"
+      }
+    };
+    const SUPPORTED_LANGS = ['ko', 'en', 'ja', 'zh'];
+    APP.lang = 'ko';
+
+    function detectLang() {
+      try {
+        const saved = localStorage.getItem('mvf-lang');
+        if (saved && SUPPORTED_LANGS.includes(saved)) return saved;
+      } catch (e) {}
+      const navLangs = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || 'ko'];
+      for (const raw of navLangs) {
+        const code = raw.toLowerCase();
+        if (code.startsWith('ko')) return 'ko';
+        if (code.startsWith('ja')) return 'ja';
+        if (code.startsWith('zh')) return 'zh';
+        if (code.startsWith('en')) return 'en';
+      }
+      return 'ko';
+    }
+
+    function applyLang(lang) {
+      if (!SUPPORTED_LANGS.includes(lang)) lang = 'ko';
+      APP.lang = lang;
+      const dict = I18N[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) el.textContent = dict[key];
+      });
+      // Play/Stop button reflects current playback state
+      EL.playBtn.textContent = APP.isPlaying ? dict.stop : dict.play;
+      // Dynamic labels that depend on loaded-file state
+      if (APP.midiLoaded && APP._midiFileName) {
+        $('midi-label').textContent = dict.midiLoadedPrefix + APP._midiFileName;
+      }
+      if (APP.mediaLoaded) {
+        $('media-label').textContent = dict.mediaLoaded;
+      }
+      document.documentElement.lang = lang;
+      EL.langSelect.value = lang;
+      try { localStorage.setItem('mvf-lang', lang); } catch (e) {}
+    }
+
+    EL.langSelect.onchange = e => applyLang(e.target.value);
+    applyLang(detectLang());
+    // ---------- /i18n ----------
 
     EL.noticeBtn.onclick = () => {
-      const msg = "본 사이트를 통해 생성된 결과물은 자유롭게 사용 가능하며 출처 표기는 불필요합니다.\n\n" +
-                  "단, 업로드한 파일의 저작권 및 사용 책임은 전적으로 사용자에게 있습니다.\n" +
-                  "모든 처리는 브라우저에서 실시간으로 이루어지며, 파일은 서버로 전송되지 않습니다.";
-      alert(msg);
+      alert(I18N[APP.lang].noticeAlert);
     };
 
     function setStatus(msg, active = false) { EL.statusText.textContent = msg; if (active) EL.statusDot.classList.add('active'); else EL.statusDot.classList.remove('active'); }
     EL.hexBg.oninput = e => { if (/^#([0-9A-F]{3}){1,2}$/i.test(e.target.value)) EL.vidBg.style.backgroundColor = EL.viewport.style.backgroundColor = e.target.value; };
 
-    async function handleMidi(f) { try { const b = await f.arrayBuffer(); APP.midi = new Midi(b); APP.midiLoaded = true; $('midi-label').textContent = `✓ MIDI: ${f.name.substring(0,8)}`; EL.midiZone.classList.add('loaded'); checkReady(); } catch(e){} }
-    async function handleMedia(f) { try { if (APP.currentMediaUrl) URL.revokeObjectURL(APP.currentMediaUrl); APP.currentMediaUrl = URL.createObjectURL(f); EL.video.src = APP.currentMediaUrl; EL.video.load(); if (APP.sampler) APP.sampler.dispose(); APP.sampler = new Tone.Sampler({ urls: { C4: APP.currentMediaUrl }, onload: () => { APP.mediaLoaded = true; $('media-label').textContent = `✓ 미디어 로드됨`; EL.mediaZone.classList.add('loaded'); checkReady(); } }).toDestination(); } catch(e){} }
-    function checkReady() { if (APP.midiLoaded && APP.mediaLoaded) { EL.playBtn.disabled = EL.exportBtn.disabled = false; setStatus('Ready', true); } }
+    async function handleMidi(f) { try { const b = await f.arrayBuffer(); APP.midi = new Midi(b); APP.midiLoaded = true; APP._midiFileName = f.name.substring(0,8); $('midi-label').textContent = I18N[APP.lang].midiLoadedPrefix + APP._midiFileName; EL.midiZone.classList.add('loaded'); checkReady(); } catch(e){} }
+    async function handleMedia(f) { try { if (APP.currentMediaUrl) URL.revokeObjectURL(APP.currentMediaUrl); APP.currentMediaUrl = URL.createObjectURL(f); EL.video.src = APP.currentMediaUrl; EL.video.load(); if (APP.sampler) APP.sampler.dispose(); APP.sampler = new Tone.Sampler({ urls: { C4: APP.currentMediaUrl }, onload: () => { APP.mediaLoaded = true; $('media-label').textContent = I18N[APP.lang].mediaLoaded; EL.mediaZone.classList.add('loaded'); checkReady(); } }).toDestination(); } catch(e){} }
+    function checkReady() { if (APP.midiLoaded && APP.mediaLoaded) { EL.playBtn.disabled = EL.exportBtn.disabled = false; setStatus(I18N[APP.lang].statusReady, true); } }
 
     function executeTrigger(note) {
       Tone.Transport.schedule(t => {
@@ -361,8 +521,8 @@
     }
 
     EL.playBtn.onclick = async () => {
-      if (APP.isPlaying) { Tone.Transport.stop(); EL.video.pause(); APP.isPlaying = false; EL.playBtn.textContent = '재생'; }
-      else { await Tone.start(); Tone.Transport.cancel(); APP.midi.tracks.forEach(tr => tr.notes.forEach(executeTrigger)); Tone.Transport.start(); APP.isPlaying = true; EL.playBtn.textContent = '정지'; }
+      if (APP.isPlaying) { Tone.Transport.stop(); EL.video.pause(); APP.isPlaying = false; EL.playBtn.textContent = I18N[APP.lang].play; }
+      else { await Tone.start(); Tone.Transport.cancel(); APP.midi.tracks.forEach(tr => tr.notes.forEach(executeTrigger)); Tone.Transport.start(); APP.isPlaying = true; EL.playBtn.textContent = I18N[APP.lang].stop; }
     };
 
     EL.flipHBtn.onclick = () => { APP.isFlipHMode = !APP.isFlipHMode; EL.flipHBtn.classList.toggle('active'); if(!APP.isFlipHMode) { APP.currentFlipX = 1; EL.video.style.transform = `scaleX(1) scaleY(${APP.currentFlipY})`; } };
