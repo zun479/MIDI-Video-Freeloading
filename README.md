@@ -7,7 +7,7 @@ https://midi-video-customize.vercel.app/
 </p>
 </p>
   <p>
-     https://img.shields.io/badge/any_text-you_like-blue
+     ![License: MIT License](https://img.shields.io/badge/license-MIT_License-blue.svg)
    </p>
 </div>
 </div>
