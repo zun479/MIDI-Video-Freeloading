@@ -1,8 +1,21 @@
-# MIDI-Video-Freeloading
-> $\color{#2ea44f}{\textsf{\textbf{이제 미디 파일과 비디오만 준비하세요!}}}$
-> > https://midi-video-customize.vercel.app/
+<div align="center">
+  <img src="./image/banner image.png" alt="banner image"/>
+<div align="center">
+<p><strong>이제 미디 파일과 비디오만 준비하세요!</strong></p>
+<p>기존 DAW 기반 작업보다 더 간단하게 MIDI와 영상을 활용할 수 있습니다.</p>
+https://midi-video-customize.vercel.app/
+</p>
+</p>
+  <p>
+     https://img.shields.io/badge/any_text-you_like-blue
+   </p>
+</div>
+</div>
 
-기존 DAW 기반 작업보다 더 간단하게 MIDI와 영상을 활용할 수 있습니다.
+
+
+
+
 > [!IMPORTANT]
 > 이 사이트를 사용해 생성된 영상 및 결과물은 자유롭게 녹화, 편집, 업로드 및 공유할 수 있습니다.
 > 본 사이트 출처 표기는 필요하지 않습니다.
